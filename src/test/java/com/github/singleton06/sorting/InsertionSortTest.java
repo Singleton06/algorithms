@@ -1,6 +1,8 @@
 package com.github.singleton06.sorting;
 
 import static com.github.singleton06.DataGeneration.generateRandomArrayOfLength;
+import static com.github.singleton06.sorting.InsertionSort.reverseSort;
+import static com.github.singleton06.sorting.InsertionSort.reverseSort2;
 import static com.github.singleton06.sorting.InsertionSort.sort;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -25,5 +27,19 @@ public class InsertionSortTest {
     sort(arr);
 
     assertThat(arr, is(expected));
+  }
+
+  @Test
+  public void testReverseSort_bookExample() {
+    int[] arr = new int[] {31, 41, 59, 26, 41, 58};
+    reverseSort(arr);
+    assertThat(arr, is(new int[] {59, 58, 41, 41, 31, 26}));
+  }
+
+  @Test
+  public void testReverseSort2_bookExample() {
+    int[] arr = new int[] {31, 41, 59, 26, 41, 58};
+    reverseSort2(arr);
+    assertThat(arr, is(new int[] {59, 58, 41, 41, 31, 26}));
   }
 }
